@@ -54,6 +54,12 @@ def main(file_name, version):
             install_uv()
         create_venv(version)
         activate_venv(file_name)
+    else:
+        if system() == 'Windows':
+            subprocess.run([executable, file_name])
+        else:
+            subprocess.run([executable, file_name])
+        
 
 if __name__ == "__main__":
-    main()
+    main(file_name="new_test.py", version=3.13)
