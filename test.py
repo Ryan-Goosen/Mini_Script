@@ -37,7 +37,7 @@ def install_uv():
     print("\nUV has been installed.")
 
 def create_venv(version):
-    subprocess.run([executable,"-m","uv", "venv", ".venv"], check=True)
+    subprocess.run([executable,"-m","uv", "venv", ".venv", f"--python={version}"], check=True)
     print('\nVirtual Environment Created.')
 
 def activate_venv(file_name):
