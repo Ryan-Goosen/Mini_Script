@@ -5,7 +5,7 @@ from platform import system
 from sys import version_info, executable
 
 def check_python_version():
-    if version_info[0:3] >= (3,13,0):
+    if version_info[0:3] <= (3,13,0):
         return True
     else:
         return False
@@ -37,7 +37,7 @@ def install_uv():
     print("\nUV has been installed.")
 
 def create_venv(version):
-    subprocess.run([sys.executable, "-m", "pip", "--version"])
+    subprocess.run(["uv", "venv", ".venv"], check=True)
     print('\nVirtual Environment Created.')
 
 def activate_venv(file_name):
